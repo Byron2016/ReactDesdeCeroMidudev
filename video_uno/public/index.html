@@ -21,6 +21,22 @@
 </head>
 <body>
   <h1>Women in Tech</h1>
+  <div id='app'></div>
+  <script>
+    const $app = document.getElementById('app')
+    const Avatar = params => {
+      const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`
+
+      return `<picture>
+        <img src="${src}" >
+        ${params.name}
+        </picture>
+      `
+    }
+    $app.innerHTML += Avatar({id: 11, name: 'Andrea'})
+    $app.innerHTML += Avatar({id: 12, name: 'Manuela'})
+  </script>
+  <!-- 
   <picture>
     <img src="https://randomuser.me/api/portraits/women/0.jpg" alt="" >
     Andrea
@@ -29,5 +45,6 @@
     <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="">
     Daniela
   </picture>
+  -->
 </body>
 </html>
