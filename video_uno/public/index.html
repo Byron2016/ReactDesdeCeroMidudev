@@ -17,6 +17,10 @@
       border-radius: 50%;
       width: 100px;
     }
+ 
+    img.disabled {
+      opacity: 0.3;
+    }
   </style>
 </head>
 <body>
@@ -33,8 +37,14 @@
         </picture>
       `
     }
-    $app.innerHTML += Avatar({id: 11, name: 'Andrea'})
-    $app.innerHTML += Avatar({id: 12, name: 'Manuela'})
+    $app.innerHTML += Avatar({id: 15, name: 'Andrea'})
+    $app.innerHTML += Avatar({id: 16, name: 'Manuela'})
+
+    $app.querySelectorAll('img').forEach(img => {
+      img.addEventListener('click' , () => {
+        img.classList.toggle('disabled')
+      })
+    })
   </script>
   <!-- 
   <picture>
