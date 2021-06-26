@@ -34,6 +34,17 @@
     img.disabled {
       opacity: 0.3;
     }
+
+    i {
+      border: 1px solid #ccc;
+      box-shadow: 0 0 15px #999;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 50px;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -59,16 +70,22 @@
 
       return (
         <picture className = {pictureClassName}>
-          <img onClick={ () => setEnabled(!enabled)} className = {imgClassName} src={src} />
-          <strong>{name}</strong>
+          {
+            id ? (
+              <img onClick={ () => setEnabled(!enabled)} className = {imgClassName} src={src} />
+            ) : (
+              <i>Sin imagen</i>
+            )
+          }
+          <strong>{enabled ? name: "Desactivado"}</strong>
         </picture>
       )
     }
 
     ReactDOM.render(
       <div>
-        <Avatar id={27} size = 'small'/>
-        <Avatar id={28} name="Sofita" />
+        <Avatar />
+        <Avatar name="Sofita" />
         <Avatar id={30} name="Andrea" size = 'large' />
       </div>,  $app
     )
