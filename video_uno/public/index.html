@@ -34,35 +34,27 @@
   <div id='app'></div>
   <script type="text/babel">
     const $app = document.getElementById('app')
-    // const h = React.createElement
-    const Avatar = params => {
-      const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`
-      // return h('img', {src})
-      return <img src={src} />
+
+    const Avatar = props => {
+      const src = `https://randomuser.me/api/portraits/women/${props.id}.jpg`
+      
+      return (
+        <picture>
+          <img onClick={(event) => {
+            event.target.classList.toggle('disabled')
+          }} src={src} />
+          <strong>{props.name}</strong>
+        </picture>
+      )
     }
-    /*
-    ReactDOM.render(
-      h('div', null, [h(Avatar, { id: 4 }), h(Avatar, { id: 5 })]), $app
-    )
-    */
+
     ReactDOM.render(
       <div>
-        <Avatar id={20} name="Ana" />
-        <Avatar id={21} name="Sofi" />
+        <Avatar id={23} name="Anita" />
+        <Avatar id={24} name="Sofita" />
       </div>,  $app
     )
     /*
-    const Avatar = params => {
-      const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`
-
-      return `<picture>
-        <img src="${src}" >
-        ${params.name}
-        </picture>
-      `
-    }
-    $app.innerHTML += Avatar({id: 15, name: 'Andrea'})
-    $app.innerHTML += Avatar({id: 16, name: 'Manuela'})
 
     $app.querySelectorAll('img').forEach(img => {
       img.addEventListener('click' , () => {
