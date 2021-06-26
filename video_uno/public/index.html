@@ -37,7 +37,10 @@
       const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`
       return h('img', {src})
     }
-    ReactDOM.render(h(Avatar, { id: 7}),  $app)
+    // ReactDOM.render(h(Avatar, { id: 7}),  $app)
+    ReactDOM.render(
+      h('div', null, [h(Avatar, { id: 4 }), h(Avatar, { id: 5 })]), $app
+    )
     /*
     const Avatar = params => {
       const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`
