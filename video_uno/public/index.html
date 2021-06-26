@@ -35,14 +35,17 @@
   <script type="text/babel">
     const $app = document.getElementById('app')
 
+    const useState = React.useState
+
     const Avatar = props => {
+      const [enabled, setEnabled] = useState(true)
       const src = `https://randomuser.me/api/portraits/women/${props.id}.jpg`
-      
+
+      const className = enabled ? '' : 'disabled'
+
       return (
         <picture>
-          <img onClick={(event) => {
-            event.target.classList.toggle('disabled')
-          }} src={src} />
+          <img onClick={ () => setEnabled(!enabled)} className = {className} src={src} />
           <strong>{props.name}</strong>
         </picture>
       )
@@ -50,18 +53,10 @@
 
     ReactDOM.render(
       <div>
-        <Avatar id={23} name="Anita" />
-        <Avatar id={24} name="Sofita" />
+        <Avatar id={25} name="Anita" />
+        <Avatar id={26} name="Sofita" />
       </div>,  $app
     )
-    /*
-
-    $app.querySelectorAll('img').forEach(img => {
-      img.addEventListener('click' , () => {
-        img.classList.toggle('disabled')
-      })
-    })
-    */
   </script>
 </body>
 </html>
