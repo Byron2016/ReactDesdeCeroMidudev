@@ -9,6 +9,7 @@ export default function ListOfGifs({params}) {
   // const [gifs, setGifs] = useState(
   //   { loading: false, results:[]}
   // )
+  // Fin V02
 
   useEffect(() => {
     setLoading(true)
