@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import './App.css';
 
 const GIFS = [
@@ -13,6 +13,12 @@ const DIFFERENTS_GIFS = [
 
 function App() {
   const [gifs, setGifs] = useState(GIFS)
+
+  useEffect(() => {
+    // return console.log('efecto ejecutado')
+    setGifs(DIFFERENTS_GIFS)
+  }, [])
+
   return (
     <div className="App">
       <section className="App-content">
