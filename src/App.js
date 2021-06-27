@@ -1,34 +1,14 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import './App.css';
-import getGifs from './services/getGifs';
-import Gif from './components/Gif';
+import ListOfGifs from './components/ListOfGifs';
 
 function App() {
-  const [gifs, setGifs] = useState([])
-
-  useEffect(() => {
-    // console.log('efecto ejecutado')
-    getGifs({keyword: 'Homero'}).then(gifsRetornados => setGifs(gifsRetornados))
-    // console.log('dentro de useEffect ')
-    // console.log(gifs)
-  }, [])
-
-  // console.log('fuera de useEffect ')
-  // console.log(gifs)
-
+  const [keyword, setKeyword] = useState('panda')
   return (
     <div className="App">
       <section className="App-content">
-        {
-          gifs.map(singleGig => 
-            <Gif 
-              key={singleGig.id}
-              title={
-              singleGig.title} 
-              url={singleGig.url} 
-              id={singleGig.id} 
-            /> ) 
-        }
+        <button onClick={() => setKeyword('mapache')}>Cambiar keyword</button>
+        <ListOfGifs keyword={keyword} />
       </section>
     </div>
   );
