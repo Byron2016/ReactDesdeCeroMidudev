@@ -22,6 +22,7 @@ function App() {
         {
           gifs.map(singleGig => 
             <Gif 
+              key={singleGig.id}
               title={
               singleGig.title} 
               url={singleGig.url} 
