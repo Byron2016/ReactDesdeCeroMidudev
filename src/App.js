@@ -1,13 +1,14 @@
 import {useEffect, useState} from 'react'
 import './App.css';
 import getGifs from './services/getGifs';
+import Gif from './components/Gif';
 
 function App() {
   const [gifs, setGifs] = useState([])
 
   useEffect(() => {
     // console.log('efecto ejecutado')
-    getGifs({keyword: 'matrix'}).then(gifsRetornados => setGifs(gifsRetornados))
+    getGifs({keyword: 'Homero'}).then(gifsRetornados => setGifs(gifsRetornados))
     // console.log('dentro de useEffect ')
     // console.log(gifs)
   }, [])
@@ -19,13 +20,13 @@ function App() {
     <div className="App">
       <section className="App-content">
         {
-          gifs.map(singleGig => {
-          return <div>
-            <h4>{singleGig.title}</h4>
-            <p><small>{singleGig.id}</small></p>
-            <img src={singleGig.url} alt={singleGig.title}/>
-          </div>
-          }) 
+          gifs.map(singleGig => 
+            <Gif 
+              title={
+              singleGig.title} 
+              url={singleGig.url} 
+              id={singleGig.id} 
+            /> ) 
         }
       </section>
     </div>
