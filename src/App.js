@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     console.log('efecto ejecutado')
-    getGifs().then(gifs => setGifs(gifs))
+    getGifs({keyword: 'panda'}).then(gifs => setGifs(gifs))
   }, [])
 
   return (
