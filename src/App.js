@@ -1,22 +1,26 @@
 import {useEffect, useState} from 'react'
 import './App.css';
 
-const GIFS = [
-  'https://media1.giphy.com/media/cnbsOTkEJnq0/200w.webp?cid=ecf05e47t2codon6cnvgc3hpow7819durne9nzjugqiqn5lb&rid=200w.webp&ct=g',
-  'https://media4.giphy.com/media/EPcvhM28ER9XW/200w.webp?cid=ecf05e47t2codon6cnvgc3hpow7819durne9nzjugqiqn5lb&rid=200w.webp&ct=g',
-  'https://media4.giphy.com/media/BCgcfnaGDaYai5eYD1/200w.webp?cid=ecf05e47w7vptu3y7yn7gri1261clg7d7h60m7m89b2qo137&rid=200w.webp&ct=g'
-]
-
-const DIFFERENTS_GIFS = [
-  'https://media2.giphy.com/media/TObbUke0z8Mo/200.webp?cid=ecf05e47t2codon6cnvgc3hpow7819durne9nzjugqiqn5lb&rid=200.webp&ct=g',
-]
+const apiURL = 'https://api.giphy.com/v1/gifs/search?api_key=Pboj2pSFbOlMbjmKYHNlnwOG7oSSdvtg&q=panda&limit=10&offset=0&rating=g&lang=en'
 
 function App() {
-  const [gifs, setGifs] = useState(GIFS)
+  const [gifs, setGifs] = useState([])
+
+  
 
   useEffect(() => {
-    // return console.log('efecto ejecutado')
-    setGifs(DIFFERENTS_GIFS)
+    console.log('efecto ejecutado')
+
+    // En caso q fetch no esté soportado por navegador, se puede usar
+    // github.com/developit/unfetch
+
+    fetch(apiURL)
+    .then((res) => res.json())
+    .then((response) => {
+      const { data = [] } = response
+      const gifs = data.map(image => image.images.downsized_medium.url)
+      setGifs(gifs)
+    })
   }, [])
 
   return (
@@ -25,9 +29,10 @@ function App() {
         {
           gifs.map(singleGig => <img src={singleGig} />)
         }
-        <button onClick={() => setGifs(DIFFERENTS_GIFS) }>
+        {/*
+         <button onClick={() => setGifs(DIFFERENTS_GIFS) }>
           Cambiar gifs
-        </button>
+        </button> */}
       </section>
     </div>
   );
