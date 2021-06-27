@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const apiKey = 'Pboj2pSFbOlMbjmKYHNlnwOG7oSSdvtg'
 
 export default function getGifs ({keyword = 'matrix'} = {}) {
