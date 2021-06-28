@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import './App.css';
-import ListOfGifs from './components/ListOfGifs';
+// import ListOfGifs from './components/ListOfGifs';
+import ListOfGifs from './components/ListOfGifs/index';
 
 import {Link, Route } from 'wouter'
 
