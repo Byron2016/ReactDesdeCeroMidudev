@@ -1,17 +1,13 @@
-import {useState} from 'react'
 import './App.css';
-// import ListOfGifs from './components/ListOfGifs';
-//import ListOfGifs from './components/ListOfGifs/index';
 import SearchResults from './pages/SearchResults'
+import Detail from './pages/Detail'
 
 import {Link, Route } from 'wouter'
 
-function App() {
-  const [keyword, setKeyword] = useState('panda')
+export default function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <h1>App</h1>
         <Link to="/">
           <img className="App-logo" alt='Giffy logo' src='/logo.png' />
         </Link>
@@ -20,14 +16,12 @@ function App() {
         <Link to='/gif/chile'>Gifs de Chile</Link>
         <Route 
           component={SearchResults} 
-          path="/gif/:keyword" />
-        {/* 
-        <button onClick={() => setKeyword('mapache')}>Cambiar keyword</button>
-        <ListOfGifs keyword={keyword} /> 
-        */}
+          path="/search/:keyword" />
+        <Route
+          component={Detail}
+          path="/gif/:id"
+        />
       </section>
     </div>
   );
 }
-
-export default App;
