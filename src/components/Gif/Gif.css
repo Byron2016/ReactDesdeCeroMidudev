@@ -1,0 +1,56 @@
+/* v02 */
+.Gif {
+  /* v03 */
+  margin-bottom: .5em;
+  /* v02 
+  border: 1px solid #eee;
+  border-radius: 6px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100%;
+  margin: 16px;
+  padding: 32px;
+  */
+}
+
+/* v03 */
+.Gif-link {
+  /* v03 */
+  color: #000;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+}
+
+/* v02 */
+.Gif h4 {
+  /* v03 */
+  background: rgba(0, 0, 0, .3);
+  bottom: 0;
+  font-size: 12px;
+  color: #fff;
+  /* v02 */
+  margin: 0;
+  /* v03 */
+  position: absolute;
+}
+
+/* v02 */
+.Gif img {
+  /* v03 */
+  width: 100%; 
+  /* v02 */
+  object-fit: contain;
+  /* v03 */
+  vertical-align: top;
+}
+
+/* v02 */
+i {
+  /* v02 */
+  font-size: 80px;
+}
+
