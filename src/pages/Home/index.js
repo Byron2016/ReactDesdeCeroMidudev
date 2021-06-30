@@ -1,11 +1,27 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import { Link, useLocation } from "wouter"
+import getGifs from '../../services/getGifs'
+import ListOfGifs from '../../components/ListOfGifs/index'
 
 const POPULAR_GIFS = ["USA","Matrix", "Chile", "Colombia", "Ecuador"]
 
 export default function Home() {
   const [keyword, setKeyword] = useState('')
   const [path, pushLocation] = useLocation()
+
+  //i-Mismo código usado en SearchResult
+  const [loading, setLoading] = useState(false)
+  const [gifs, setGifs] = useState([])
+
+  useEffect(function (){
+    setLoading(true)
+    getGifs({keyword: 'Rick'})
+      .then(gifsRetornados => {
+        setGifs(gifsRetornados)
+        setLoading(false)
+      })
+  }, [keyword])
+  //f-Mismo código usado en SearchResult
 
   const handleSubmit = evt => {
     evt.preventDefault()
@@ -21,7 +37,10 @@ export default function Home() {
     <>
       <form onSubmit={handleSubmit}>
         <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
+        <button>Buscar</button>
       </form>
+      <h3 className="App-title">Ültima búsqueda</h3>
+      <ListOfGifs gifs={gifs} />
       <h3 className="App-title">Los gifs más populares</h3>
       <ul>
       {POPULAR_GIFS.map((popularGif) => (
