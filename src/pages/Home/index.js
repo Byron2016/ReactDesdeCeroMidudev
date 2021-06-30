@@ -1,15 +1,16 @@
 import React, {useState} from "react"
-import { Link } from "wouter"
+import { Link, useLocation } from "wouter"
 
 const POPULAR_GIFS = ["USA","Matrix", "Chile", "Colombia", "Ecuador"]
 
 export default function Home() {
   const [keyword, setKeyword] = useState('')
+  const [path, pushLocation] = useLocation()
 
   const handleSubmit = evt => {
     evt.preventDefault()
     //navegar a otra ruta
-    console.log({keyword})
+    pushLocation(`/search/${keyword}`)
   }
 
   const handleChange = evt => {
