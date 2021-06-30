@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react"
 import { Link, useLocation } from "wouter"
 import ListOfGifs from '../../components/ListOfGifs/index'
+import Category from '../../components/Category'
 import {useGifs} from '../../hooks/useGifs'
 
-const POPULAR_GIFS = ["USA","Matrix", "Chile", "Colombia", "Ecuador"]
+const POPULAR_GIFS = ["USA","Matrix", "Chile", "Colombia", "Ecuador", "Peru"]
 
 export default function Home() {
   const [keyword, setKeyword] = useState('')
@@ -29,6 +30,7 @@ export default function Home() {
       </form>
       <h3 className="App-title">Ültima búsqueda</h3>
       <ListOfGifs gifs={gifs} />
+      <Category name="Categorias populares" options={POPULAR_GIFS}/>
       <h3 className="App-title">Los gifs más populares</h3>
       <ul>
       {POPULAR_GIFS.map((popularGif) => (
