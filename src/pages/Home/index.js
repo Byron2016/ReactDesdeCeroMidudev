@@ -31,14 +31,6 @@ export default function Home() {
       <h3 className="App-title">Ültima búsqueda</h3>
       <ListOfGifs gifs={gifs} />
       <Category name="Categorias populares" options={POPULAR_GIFS}/>
-      <h3 className="App-title">Los gifs más populares</h3>
-      <ul>
-      {POPULAR_GIFS.map((popularGif) => (
-        <li key={popularGif}>
-          <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
-        </li>
-      ))}
-      </ul>
     </>
   )
 }
