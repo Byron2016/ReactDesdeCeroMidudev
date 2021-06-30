@@ -9,20 +9,7 @@ export default function Home() {
   const [keyword, setKeyword] = useState('')
   const [path, pushLocation] = useLocation()
 
-  //i-Mismo código usado en SearchResult
-  // const [loading, setLoading] = useState(false)
-  // const [gifs, setGifs] = useState([])
-
-  // useEffect(function (){
-  //   setLoading(true)
-  //   getGifs({keyword: 'Rick'})
-  //     .then(gifsRetornados => {
-  //       setGifs(gifsRetornados)
-  //       setLoading(false)
-  //     })
-  // }, [keyword])
-  //f-Mismo código usado en SearchResult
-  const {loading, gifs} = useGifs({keyword: 'Indiana'})
+  const {loading, gifs} = useGifs()
 
   const handleSubmit = evt => {
     evt.preventDefault()
